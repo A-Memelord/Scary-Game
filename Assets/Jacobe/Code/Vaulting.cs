@@ -5,7 +5,7 @@ public class Vaulting : MonoBehaviour
 {
 
     private int vaultLayer;
-    public Camera cam;
+    public Collider vaultCollider;
     private float playerHeight = 2f;
     private float playerRadius = 0.5f;
 
@@ -22,12 +22,13 @@ public class Vaulting : MonoBehaviour
 
     private void Vault()
     {
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyUp(KeyCode.C))
         {
-            if (Physics.Raycast(cam.transform.position, cam.transform.forward, out var firstHit, 1f, vaultLayer))
+                                // Position                       Size                Vector2.zero                     Quaternion.identity               1         LayerMask                 out var secondHit
+            if (Physics.BoxCast(vaultCollider.transform.position, vaultCollider. , vaultCollider.transform.forward, vaultCollider.transform.rotation, 10f))
             {
                 print("vaultable in front");
-                if (Physics.Raycast(firstHit.point + (cam.transform.forward * playerRadius) + (Vector3.up * 0.6f * playerHeight), Vector3.down, out var secondHit, playerHeight))
+                if (Physics.BoxCast((vaultCollider.transform.forward * playerRadius) + (Vector3.up * 0.6f * playerHeight), Vector3.down, out var secondHit, playerHeight))
                 {
                     print("found place to land");
                     StartCoroutine(LerpVault(secondHit.point, 0.5f));
