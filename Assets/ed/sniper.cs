@@ -5,6 +5,7 @@ public class sniper : MonoBehaviour
 {
 public GameObject bullet;
 public GameObject target;
+public GameObject sound;
 private bool can_shoot = true;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,6 +20,7 @@ private bool can_shoot = true;
         if (can_shoot)
         {
             GameObject new_bullet = Instantiate(bullet, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
+            GameObject new_sound = Instantiate(sound, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
             StartCoroutine(Reload());
         }
     }
