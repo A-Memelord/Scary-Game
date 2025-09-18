@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Curtis/Prefabs.meta
 guid: d4e073a9035bb65429af8994219f2ff0
+========
+guid: e53a4afa8fdd7cc46930f83f37c4ddae
+>>>>>>>> 90fc1fdb73d465f132da9fe36eb462b54d37f082:Assets/Curtis.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
