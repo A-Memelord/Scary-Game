@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 78589002}
   - component: {fileID: 78589007}
   - component: {fileID: 78589006}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -521,7 +521,7 @@ GameObject:
   - component: {fileID: 270807955}
   - component: {fileID: 270807954}
   - component: {fileID: 270807953}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -785,7 +785,7 @@ GameObject:
   - component: {fileID: 523190530}
   - component: {fileID: 523190529}
   - component: {fileID: 523190528}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1006,7 +1006,7 @@ GameObject:
   - component: {fileID: 783930320}
   - component: {fileID: 783930319}
   - component: {fileID: 783930318}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1114,7 +1114,7 @@ GameObject:
   - component: {fileID: 1229749768}
   - component: {fileID: 1229749767}
   - component: {fileID: 1229749766}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1222,7 +1222,7 @@ GameObject:
   - component: {fileID: 1419556707}
   - component: {fileID: 1419556706}
   - component: {fileID: 1419556705}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1689,36 +1689,42 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1552810215128951568, guid: c97566d5624d0f14db1993a37b93ad25, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6334132034776271576}
+      insertIndex: 7
+      addedObject: {fileID: 6334132034776271584}
   m_SourcePrefab: {fileID: 100100000, guid: c97566d5624d0f14db1993a37b93ad25, type: 3}
 --- !u!1 &6334132034776271575 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1552810215128951568, guid: c97566d5624d0f14db1993a37b93ad25, type: 3}
   m_PrefabInstance: {fileID: 6334132034776271574}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &6334132034776271576
-Animator:
-  serializedVersion: 7
+--- !u!143 &6334132034776271580 stripped
+CharacterController:
+  m_CorrespondingSourceObject: {fileID: 5790653327416787696, guid: c97566d5624d0f14db1993a37b93ad25, type: 3}
+  m_PrefabInstance: {fileID: 6334132034776271574}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &6334132034776271581 stripped
+CapsuleCollider:
+  m_CorrespondingSourceObject: {fileID: 2075662547871694190, guid: c97566d5624d0f14db1993a37b93ad25, type: 3}
+  m_PrefabInstance: {fileID: 6334132034776271574}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6334132034776271584
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6334132034776271575}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f44ac1a63e4079048b7d9926b394ba07, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5bf0c0760affc5488704d9b2d128c99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Playerheight: {fileID: 6334132034776271580}
+  PlayerCol: {fileID: 6334132034776271581}
+  normalheight: 2
+  crouchheight: 0.4
+  player: {fileID: 673277784}
+  offset: {x: 0, y: 0.5, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
