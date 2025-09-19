@@ -29,6 +29,16 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            moveSpeed = 9f;
+        }
+
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            moveSpeed = 6f;
+        }
+
         isGrounded = Physics.CheckSphere(groundCheck.position, groundCheckRadius, WhatIsGround);
 
         horizontal = Input.GetAxisRaw("Horizontal") * moveSpeed;
