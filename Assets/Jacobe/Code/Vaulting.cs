@@ -4,50 +4,50 @@ using UnityEngine;
 public class Vaulting : MonoBehaviour
 {
 
-    //private int vaultLayer;
-    //public Collider vaultCollider;
-    //private float playerHeight = 2f;
-    //private float playerRadius = 0.5f;
+    public LayerMask vaultLayer;
+    private float playerHeight = 2f;
+    private float playerRadius = 0.5f;
+    public Bounds VaultBounds;
 
-    //void Start()
-    //{
-    //    vaultLayer = LayerMask.NameToLayer("VaultLayer");
-    //    vaultLayer = ~vaultLayer;
-    //}
+    void Update()
+    {
+        Vault();
+    }
 
-    //void Update()
-    //{
-    //    Vault();        
-    //}
+    private void Vault()
+    {
+        if (Input.GetKeyUp(KeyCode.C))
+        {
+                                // Position                              Size                 Vector2.zero                     Quaternion.identity  1               LayerMask                 out var secondHit
+            if (Physics.BoxCast(transform.position + VaultBounds.center, VaultBounds.extents, Vector2.zero, out var secondHit, Quaternion.identity, Mathf.Infinity, vaultLayer))
+            {
+                print("vaultable in front");
 
-    //private void Vault()
-    //{
-    //    if (Input.GetKeyUp(KeyCode.C))
-    //    {
-    //        // Position                       Size                Vector2.zero                     Quaternion.identity               1         LayerMask                 out var secondHit
-    //        if (Physics.BoxCast(vaultCollider.transform.position, vaultCollider. , vaultCollider.transform.forward, vaultCollider.transform.rotation, 10f))
-    //        {
-    //            print("vaultable in front");
-    //            if (Physics.BoxCast((vaultCollider.transform.forward * playerRadius) + (Vector3.up * 0.6f * playerHeight), Vector3.down, out var secondHit, playerHeight))
-    //            {
-    //                print("found place to land");
-    //                StartCoroutine(LerpVault(secondHit.point, 0.5f));
-    //            }
-    //        }
-    //    }
-    //}
+                /*if (Physics.BoxCast((transform.position * playerRadius) + (Vector3.up * 0.6f * playerHeight), new Vector3(vaultCollider.bounds.size.x, vaultCollider.bounds.size.y, vaultCollider.bounds.size.z), Vector3.zero, Quaternion.identity, 1, vaultLayer))
+                {
+                    print("found place to land");
+                    StartCoroutine(LerpVault(secondHit.point, 0.5f));
+                }*/
+            }
+        }
+    }
 
-    //IEnumerator LerpVault(Vector3 targetPosition, float duration)
-    //{
-    //    float time = 0;
-    //    Vector3 startPosition = transform.position;
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireCube(transform.position + VaultBounds.center, VaultBounds.extents * 2);
+    }
 
-    //    while (time < duration)
-    //    {
-    //        transform.position = Vector3.Lerp(startPosition, targetPosition, time / duration);
-    //        time += Time.deltaTime;
-    //        yield return null;
-    //    }
-    //    transform.position = targetPosition;
-    //}
+    IEnumerator LerpVault(Vector3 targetPosition, float duration)
+    {
+        float time = 0;
+        Vector3 startPosition = transform.position;
+
+        while (time < duration)
+        {
+            transform.position = Vector3.Lerp(startPosition, targetPosition, time / duration);
+            time += Time.deltaTime;
+            yield return null;
+        }
+        transform.position = targetPosition;
+    }
 }
