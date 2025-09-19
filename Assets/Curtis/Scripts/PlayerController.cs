@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public float jumpHeight = 5f;
     public float gravity = -9.81f;
     private Vector3 velocity;
+    public Animator Animator;
 
     public Transform groundCheck;
     public float groundCheckRadius = 0.2f;
@@ -20,6 +21,9 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded;
 
     public bool isFacingRight = true;
+
+
+    public float movement_anim_value = 0f;
 
 
     void Start()
@@ -31,12 +35,12 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            moveSpeed = 9f;
+            moveSpeed = 6f;
         }
 
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
-            moveSpeed = 6f;
+            moveSpeed = 4f;
         }
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundCheckRadius, WhatIsGround);
@@ -44,6 +48,20 @@ public class PlayerController : MonoBehaviour
         horizontal = Input.GetAxisRaw("Horizontal") * moveSpeed;
         Vector3 move = new Vector3(0, 0, horizontal);
 
+        ///////////////////////animation stuff/////////////////////
+        print(movement_anim_value);
+        if (Mathf.Abs(horizontal) > 0)
+        {
+            movement_anim_value += 3f * Time.deltaTime;
+        }
+        else
+        {
+            movement_anim_value -= 3f * Time.deltaTime;
+        }
+        movement_anim_value = Mathf.Clamp(movement_anim_value, 0f, 1f);
+        Animator.SetFloat("movement", movement_anim_value);
+        ////////////////////////////////////////////////////////////////////////////////
+        ///
         Cc.Move(move * Time.deltaTime);
 
         if (Input.GetButtonDown("Jump") && isGrounded)
