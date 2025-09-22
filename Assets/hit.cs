@@ -18,6 +18,7 @@ public class hit : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        print(other.gameObject.layer);
         if (other.gameObject.layer == 7)
         {
             sound.Play();
