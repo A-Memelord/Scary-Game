@@ -25,7 +25,7 @@ public class ObjectPushing : MonoBehaviour
             forceDirection.y = 0;
             forceDirection.Normalize();
 
-            rb.AddForceAtPosition(forceDirection * forceMagnitude, transform.position, ForceMode.Impulse);
+            rb.AddForceAtPosition(forceDirection * forceMagnitude, transform.position, ForceMode.Force);
         }
     }
 }
