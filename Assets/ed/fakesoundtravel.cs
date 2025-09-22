@@ -16,4 +16,8 @@ public class fakesoundtravel : MonoBehaviour
         yield return new WaitForSeconds(2.3f);
         sound.Play();
     }
+    private void Awake()
+    {
+        Destroy(gameObject, 10f);
+    }
 }

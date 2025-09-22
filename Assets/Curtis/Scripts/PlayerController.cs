@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
         movement_anim_value = Mathf.Clamp(movement_anim_value, 0f, 1f);
         Animator.SetFloat("movement", movement_anim_value);
         ////////////////////////////////////////////////////////////////////////////////
-        ///
+        
         Cc.Move(move * Time.deltaTime);
 
         if (Input.GetButtonDown("Jump") && isGrounded)
