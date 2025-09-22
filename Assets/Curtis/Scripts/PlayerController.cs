@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
 
     public bool isFacingRight = true;
 
+    public bool moving = false;
 
     public float movement_anim_value = 0f;
 
@@ -43,13 +44,26 @@ public class PlayerController : MonoBehaviour
             moveSpeed = 4f;
         }
 
+        bool wasGrounded = isGrounded;
         isGrounded = Physics.CheckSphere(groundCheck.position, groundCheckRadius, WhatIsGround);
+
+        if (wasGrounded && !isGrounded && velocity.y <= 0)
+        {
+            velocity.y = 0;
+        }
 
         horizontal = Input.GetAxisRaw("Horizontal") * moveSpeed;
         Vector3 move = new Vector3(0, 0, horizontal);
 
+        if (move.z == 4)
+        {
+            moving = true;
+        }
+        else
+        {
+            moving = false;
+        }
         ///////////////////////animation stuff/////////////////////
-        print(movement_anim_value);
         if (Mathf.Abs(horizontal) > 0)
         {
             movement_anim_value += 3f * Time.deltaTime;
@@ -72,6 +86,7 @@ public class PlayerController : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
 
         Cc.Move(velocity * Time.deltaTime);
+
 
         if (horizontal > 0 && !isFacingRight)
         {
