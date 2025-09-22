@@ -26,14 +26,14 @@ public class AITargeting : MonoBehaviour
         m_Distance = Vector3.Distance(m_agent.transform.position, Target.position);
         patrolDistanceA = Vector3.Distance(m_agent.transform.position, patrolA.position);
         patrolDistanceB = Vector3.Distance(m_agent.transform.position, patrolB.position);
-        if (m_Distance < AttackDistance )
-        {
-            m_agent.isStopped = true;
-            m_animator.SetBool("Attack", true);
-        }
+        //if (m_Distance < AttackDistance )
+        //{
+        //    m_agent.isStopped = true;
+        //    m_animator.SetBool("Attack", true);
+        //}
 
-        else
-        {
+        //else
+        //{
             m_agent.isStopped = false;
             m_animator.SetBool("attack", false) ;
             if(m_Distance > 5 ) 
@@ -52,7 +52,7 @@ public class AITargeting : MonoBehaviour
             //{
             //    m_agent.destination = Target.position;
             //}
-        }
+        //}
     }
 
     private void OnAnimatorMove()
