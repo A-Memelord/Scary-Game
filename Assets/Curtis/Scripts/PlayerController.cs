@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
         horizontal = Input.GetAxisRaw("Horizontal") * moveSpeed;
         Vector3 move = new Vector3(0, 0, horizontal);
 
-        if (move.z == 4)
+        if (Mathf.Abs(move.z) == 4)
         {
             moving = true;
         }
