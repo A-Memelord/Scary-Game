@@ -49,7 +49,7 @@ public class SceneFader : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftBracket))
         {
-            FadeAndLoad("SceneB", 1);
+            FadeAndLoad("MainMenu", 1);
         }
     }
 
