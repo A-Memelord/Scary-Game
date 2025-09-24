@@ -1,21 +1,24 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PressureSwitch : MonoBehaviour
 {
-    [SerializeField] private Door currentDoor;
-
-    [SerializeField] private Animator animator;
+    [SerializeField] public GameObject currentDoor;
 
 
-    private void OnTriggerEnter(Collider other)
+    public UnityEvent OnOpen;
+        public UnityEvent OnClose;
+    public void OnTriggerEnter(Collider other)
     {
-        currentDoor.AddPressureSwitch(this);
-        animator.SetBool("Down", true);
+        print("Trigger Entered");
+        currentDoor.GetComponent<Door>().AddPressureSwitch(this);
+        OnOpen.Invoke();
     }
 
-    private void OnTriggerExit(Collider other)
+    public void OnTriggerExit(Collider other)
     {
-        currentDoor.RemovePressureSwitch(this);
-        animator.SetBool("Down", false);
+        print("Trigger Exited");
+        currentDoor.GetComponent<Door>().RemovePressureSwitch(this);
+        OnClose.Invoke();
     }
 }

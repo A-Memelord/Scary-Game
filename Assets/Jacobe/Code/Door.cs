@@ -5,12 +5,12 @@ public class Door : MonoBehaviour
 {
     public bool IsDoorOpen = false;
 
-    [SerializeField] private int requiredSwithchesToOpen = 1;
-    [SerializeField] private SlideDoorManager SlideDoorManager;
+    [SerializeField] public int requiredSwithchesToOpen = 1;
+    [SerializeField] public SlideDoorManager SlideDoorManager;
 
-    private int CurrentSwitchesOpen => currentSwitchesOpen.Count;
+    public int CurrentSwitchesOpen => currentSwitchesOpen.Count;
 
-    private List<PressureSwitch> currentSwitchesOpen = new();
+    public List<PressureSwitch> currentSwitchesOpen = new();
     
     public void AddPressureSwitch(PressureSwitch currentSwitch)
     {
@@ -30,7 +30,7 @@ public class Door : MonoBehaviour
         TryOpen();
     }
 
-    private void TryOpen()
+    public void TryOpen()
     {
        if(CurrentSwitchesOpen >= requiredSwithchesToOpen)
         {
@@ -47,6 +47,8 @@ public class Door : MonoBehaviour
         if (!IsDoorOpen)
         {
             SlideDoorManager.OpenDoors();
+            transform.GetComponent<Animator>().SetBool("Open", true);
+            transform.GetComponent<Animator>().SetBool("Close", false);
         }
            
     }
@@ -57,6 +59,8 @@ public class Door : MonoBehaviour
         if(IsDoorOpen)
         {
             SlideDoorManager.CloseDoors();
+            transform.GetComponent<Animator>().SetBool("Close", true);
+            transform.GetComponent<Animator>().SetBool("Open", false);
         }
         
     }
