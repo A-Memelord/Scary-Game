@@ -10,6 +10,7 @@ public class sniper : MonoBehaviour
     public GameObject sound;
     private bool can_shoot = true;
     public LayerMask layers;
+    public GameObject die_ui;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -57,12 +58,14 @@ public class sniper : MonoBehaviour
                 {
                     GameObject new_bullet1 = Instantiate(bullet, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
                     GameObject new_sound1 = Instantiate(sound, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
+                    new_bullet1.GetComponentInChildren<kill>().die_ui = die_ui;
 
                 }
                 else if (rng <= 8)
                 {
                     GameObject new_bullet2 = Instantiate(bullet, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
                     GameObject new_sound2 = Instantiate(sound, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
+                    new_bullet2.GetComponentInChildren<kill>().die_ui = die_ui;
                     yield return new WaitForSeconds(Random.Range(0.7f, 1.5f));
                     if (Physics.Raycast(this.transform.position, target.transform.position - this.transform.position, out RaycastHit hitInfo2, 999999f, layers))
                     {
@@ -70,6 +73,7 @@ public class sniper : MonoBehaviour
                         {
                             GameObject new_bullet3 = Instantiate(bullet, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
                             GameObject new_sound3 = Instantiate(sound, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
+                            new_bullet3.GetComponentInChildren<kill>().die_ui = die_ui;
                         }
                     }
                 }
@@ -77,6 +81,7 @@ public class sniper : MonoBehaviour
                 {
                     GameObject new_bullet4 = Instantiate(bullet, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
                     GameObject new_sound4 = Instantiate(sound, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
+                    new_bullet4.GetComponentInChildren<kill>().die_ui = die_ui;
                     yield return new WaitForSeconds(Random.Range(0.7f, 1.5f));
                     if (Physics.Raycast(this.transform.position, target.transform.position - this.transform.position, out RaycastHit hitInfo3, 999999f, layers))
                     {
@@ -84,6 +89,7 @@ public class sniper : MonoBehaviour
                         {
                             GameObject new_bullet3 = Instantiate(bullet, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
                             GameObject new_sound3 = Instantiate(sound, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
+                            new_bullet3.GetComponentInChildren<kill>().die_ui = die_ui;
                         }
                     }
                     yield return new WaitForSeconds(Random.Range(0.7f, 1.5f));
@@ -93,6 +99,7 @@ public class sniper : MonoBehaviour
                         {
                             GameObject new_bullet3 = Instantiate(bullet, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
                             GameObject new_sound3 = Instantiate(sound, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
+                            new_bullet3.GetComponentInChildren<kill>().die_ui = die_ui;
                         }
                     }
                 }
