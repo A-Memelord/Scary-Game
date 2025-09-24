@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
 
     public float movement_anim_value = 0f;
 
+    public GameObject checkpoint;
 
     void Start()
     {
