@@ -31,6 +31,8 @@ public class bullet : MonoBehaviour
             bang.Play();
         }
     }
+
+
     private void Awake()
     {
         Destroy(gameObject, 10f);
