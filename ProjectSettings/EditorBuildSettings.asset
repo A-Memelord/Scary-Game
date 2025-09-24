@@ -8,9 +8,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Curtis/MeetingHalfWayStudios.unity
     guid: b0194e175bc36f34bafc8d4c59da6879
-  - enabled: 1
+  - enabled: 0
     path: Assets/Curtis/SceneB.unity
     guid: 8124e5870f4fd4c779e7a5f994e84ad1
+  - enabled: 1
+    path: Assets/MainMenu.unity
+    guid: 18613f185930eea4193cb778600006e9
+  - enabled: 1
+    path: Assets/ed/test.unity
+    guid: 0638a69c9c7adf249bae2de6f841d983
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
