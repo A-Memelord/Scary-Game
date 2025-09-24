@@ -51,9 +51,53 @@ public class sniper : MonoBehaviour
         {
             if (hitInfo.transform.gameObject.CompareTag("Player"))
             {
-                GameObject new_bullet = Instantiate(bullet, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
-                GameObject new_sound = Instantiate(sound, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
+                int rng = Random.Range(0, 10);
+                print(rng);
+                if (rng <= 6)
+                {
+                    GameObject new_bullet1 = Instantiate(bullet, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
+                    GameObject new_sound1 = Instantiate(sound, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
+
+                }
+                else if (rng <= 8)
+                {
+                    GameObject new_bullet2 = Instantiate(bullet, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
+                    GameObject new_sound2 = Instantiate(sound, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
+                    yield return new WaitForSeconds(Random.Range(0.7f, 1.5f));
+                    if (Physics.Raycast(this.transform.position, target.transform.position - this.transform.position, out RaycastHit hitInfo2, 999999f, layers))
+                    {
+                        if (hitInfo2.transform.gameObject.CompareTag("Player"))
+                        {
+                            GameObject new_bullet3 = Instantiate(bullet, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
+                            GameObject new_sound3 = Instantiate(sound, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
+                        }
+                    }
+                }
+                else
+                {
+                    GameObject new_bullet4 = Instantiate(bullet, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
+                    GameObject new_sound4 = Instantiate(sound, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
+                    yield return new WaitForSeconds(Random.Range(0.7f, 1.5f));
+                    if (Physics.Raycast(this.transform.position, target.transform.position - this.transform.position, out RaycastHit hitInfo3, 999999f, layers))
+                    {
+                        if (hitInfo3.transform.gameObject.CompareTag("Player"))
+                        {
+                            GameObject new_bullet3 = Instantiate(bullet, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
+                            GameObject new_sound3 = Instantiate(sound, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
+                        }
+                    }
+                    yield return new WaitForSeconds(Random.Range(0.7f, 1.5f));
+                    if (Physics.Raycast(this.transform.position, target.transform.position - this.transform.position, out RaycastHit hitInfo4, 999999f, layers))
+                    {
+                        if (hitInfo4.transform.gameObject.CompareTag("Player"))
+                        {
+                            GameObject new_bullet3 = Instantiate(bullet, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
+                            GameObject new_sound3 = Instantiate(sound, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
+                        }
+                    }
+                }
             }
+        
         }
         StartCoroutine(Reload());
     }

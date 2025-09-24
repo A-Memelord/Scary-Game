@@ -253,6 +253,7 @@ GameObject:
   - component: {fileID: 5096540917184783450}
   - component: {fileID: 2084988230812004650}
   - component: {fileID: 5696407516095605225}
+  - component: {fileID: 8462857719650887474}
   m_Layer: 0
   m_Name: bullet
   m_TagString: Untagged
@@ -336,8 +337,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 100
+  MinDistance: 990.099
+  MaxDistance: 1000
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -421,6 +422,29 @@ AudioDistortionFilter:
   m_GameObject: {fileID: 8891444649590122254}
   m_Enabled: 1
   m_DistortionLevel: 0.9
+--- !u!164 &8462857719650887474
+AudioReverbFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8891444649590122254}
+  m_Enabled: 1
+  m_DryLevel: 0
+  m_Room: -1000
+  m_RoomHF: -698
+  m_DecayTime: 7.24
+  m_DecayHFRatio: 0.33
+  m_ReflectionsLevel: -1166
+  m_ReverbLevel: 16
+  m_ReverbDelay: 0.03
+  m_Diffusion: 100
+  m_Density: 100
+  m_HFReference: 5000
+  m_RoomLF: 0
+  m_LFReference: 250
+  m_ReflectionsDelay: 0
+  m_ReverbPreset: 10
 --- !u!1001 &5064327484695408979
 PrefabInstance:
   m_ObjectHideFlags: 0
