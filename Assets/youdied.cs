@@ -18,9 +18,8 @@ public class youdied : MonoBehaviour
 
     public void died()
     {
-        print("died lol");
-        this.enabled = true;
-        GetComponent<AudioSource>().Play();
+        gameObject.SetActive(true);
+        Player.GetComponent<AudioSource>().Play();
         Player.GetComponent<CharacterController>().enabled = false;
         Player.transform.position = Player.checkpoint.transform.position;
         Player.GetComponent<CharacterController>().enabled = true;
